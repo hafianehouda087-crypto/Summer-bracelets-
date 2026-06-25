@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Summer Palette Generator</title>
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #f5f5f5;
+}
 
+h1 {
+  margin-top: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.color-box {
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🌸 Summer Palettes 🌸</h1>
+
+<button onclick="generateColors()">Generate</button>
+
+<div class="container" id="colors"></div>
+
+<script>
+function randomColor() {
+  return '#' + Math.floor(Math.random()*16777215).toString(16);
+}
+
+function generateColors() {
+  let container = document.getElementById("colors");
+  container.innerHTML = "";
+
+  for (let i = 0; i < 5; i++) {
+    let color = randomColor();
+
+    let box = document.createElement("div");
+    box.className = "color-box";
+    box.style.background = color;
+    box.innerText = color;
+
+    container.appendChild(box);
+  }
+}
+</script>
+
+</body>
+</html>
